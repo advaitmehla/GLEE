@@ -1,0 +1,236 @@
+
+I2C_Slave.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  000001ba  2**0
+                  ALLOC, LOAD, DATA
+  1 .text         000000e4  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000002f  00000000  00000000  000001ba  2**0
+                  CONTENTS, READONLY
+  3 .debug_aranges 00000070  00000000  00000000  000001e9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000c17  00000000  00000000  00000259  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 0000082a  00000000  00000000  00000e70  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   000003ac  00000000  00000000  0000169a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  000000c4  00000000  00000000  00001a48  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000027d  00000000  00000000  00001b0c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    0000009f  00000000  00000000  00001d89  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000060  00000000  00000000  00001e28  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .text         00000004  00000162  00000162  000001b6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001e88  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .text.USART_Init 00000012  00000148  00000148  0000019c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text.transmit 00000008  0000015a  0000015a  000001ae  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.I2C_Init 00000018  00000130  00000130  00000184  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.SlaveReceiver 00000030  000000e4  000000e4  00000138  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.main    0000001c  00000114  00000114  00000168  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+   8:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+   c:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  10:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  14:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  18:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  1c:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  20:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  24:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  28:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  2c:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  30:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  34:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  38:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  3c:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  40:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  44:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  48:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  4c:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  50:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  54:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  58:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  5c:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  60:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  64:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  68:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  6c:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  70:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  74:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  78:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  7c:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  80:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  84:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+  88:	0c 94 b1 00 	jmp	0x162	; 0x162 <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	ec e8       	ldi	r30, 0x8C	; 140
+  9a:	f0 e0       	ldi	r31, 0x00	; 0
+  9c:	40 e0       	ldi	r20, 0x00	; 0
+  9e:	19 c0       	rjmp	.+50     	; 0xd2 <__do_clear_bss+0x8>
+  a0:	b7 91       	elpm	r27, Z+
+  a2:	a7 91       	elpm	r26, Z+
+  a4:	37 91       	elpm	r19, Z+
+  a6:	27 91       	elpm	r18, Z+
+  a8:	07 91       	elpm	r16, Z+
+  aa:	07 fd       	sbrc	r16, 7
+  ac:	0e c0       	rjmp	.+28     	; 0xca <__do_clear_bss>
+  ae:	97 91       	elpm	r25, Z+
+  b0:	87 91       	elpm	r24, Z+
+  b2:	ef 01       	movw	r28, r30
+  b4:	f9 2f       	mov	r31, r25
+  b6:	e8 2f       	mov	r30, r24
+  b8:	0b bf       	out	0x3b, r16	; 59
+  ba:	07 90       	elpm	r0, Z+
+  bc:	0d 92       	st	X+, r0
+  be:	a2 17       	cp	r26, r18
+  c0:	b3 07       	cpc	r27, r19
+  c2:	d9 f7       	brne	.-10     	; 0xba <__do_copy_data+0x22>
+  c4:	fe 01       	movw	r30, r28
+  c6:	1b be       	out	0x3b, r1	; 59
+  c8:	04 c0       	rjmp	.+8      	; 0xd2 <__do_clear_bss+0x8>
+
+000000ca <__do_clear_bss>:
+  ca:	1d 92       	st	X+, r1
+  cc:	a2 17       	cp	r26, r18
+  ce:	b3 07       	cpc	r27, r19
+  d0:	e1 f7       	brne	.-8      	; 0xca <__do_clear_bss>
+  d2:	ec 38       	cpi	r30, 0x8C	; 140
+  d4:	f4 07       	cpc	r31, r20
+  d6:	21 f7       	brne	.-56     	; 0xa0 <__do_copy_data+0x8>
+  d8:	0e 94 8a 00 	call	0x114	; 0x114 <main>
+  dc:	0c 94 70 00 	jmp	0xe0	; 0xe0 <_exit>
+
+000000e0 <_exit>:
+  e0:	f8 94       	cli
+
+000000e2 <__stop_program>:
+  e2:	ff cf       	rjmp	.-2      	; 0xe2 <__stop_program>
+
+Disassembly of section .text:
+
+00000162 <__bad_interrupt>:
+ 162:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.USART_Init:
+
+00000148 <USART_Init>:
+#define BAUD 9600
+#define MYUBRR F_CPU/16/BAUD-1
+
+void USART_Init(unsigned int ubrr)
+{
+	UBRR0H = (unsigned int)(ubrr>>8);
+ 148:	90 93 90 00 	sts	0x0090, r25	; 0x800090 <__TEXT_REGION_LENGTH__+0x7e0090>
+	UBRR0L = (unsigned int)ubrr;
+ 14c:	89 b9       	out	0x09, r24	; 9
+	
+	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
+ 14e:	88 e1       	ldi	r24, 0x18	; 24
+ 150:	8a b9       	out	0x0a, r24	; 10
+	
+	UCSR0C = (0<<USBS) | (3<<UCSZ0);
+ 152:	86 e0       	ldi	r24, 0x06	; 6
+ 154:	80 93 95 00 	sts	0x0095, r24	; 0x800095 <__TEXT_REGION_LENGTH__+0x7e0095>
+ 158:	08 95       	ret
+
+Disassembly of section .text.transmit:
+
+0000015a <transmit>:
+}
+void transmit(unsigned char data)
+{
+	while( !(UCSR0A & (1<<UDRE0))){
+ 15a:	5d 9b       	sbis	0x0b, 5	; 11
+ 15c:	fe cf       	rjmp	.-4      	; 0x15a <transmit>
+		;
+	}
+	UDR0 = data;
+ 15e:	8c b9       	out	0x0c, r24	; 12
+ 160:	08 95       	ret
+
+Disassembly of section .text.I2C_Init:
+
+00000130 <I2C_Init>:
+	}
+	return UDR0;
+}
+
+void I2C_Init(int addr){
+	TWAR=addr<<1;
+ 130:	88 0f       	add	r24, r24
+ 132:	80 93 72 00 	sts	0x0072, r24	; 0x800072 <__TEXT_REGION_LENGTH__+0x7e0072>
+	TWCR=1<<TWEN;
+ 136:	84 e0       	ldi	r24, 0x04	; 4
+ 138:	80 93 74 00 	sts	0x0074, r24	; 0x800074 <__TEXT_REGION_LENGTH__+0x7e0074>
+	TWSR=0x00;
+ 13c:	10 92 71 00 	sts	0x0071, r1	; 0x800071 <__TEXT_REGION_LENGTH__+0x7e0071>
+	TWBR=0x0C;
+ 140:	8c e0       	ldi	r24, 0x0C	; 12
+ 142:	80 93 70 00 	sts	0x0070, r24	; 0x800070 <__TEXT_REGION_LENGTH__+0x7e0070>
+ 146:	08 95       	ret
+
+Disassembly of section .text.SlaveReceiver:
+
+000000e4 <SlaveReceiver>:
+{
+	while( !(UCSR0A & (1<<RXC))){
+		;
+	}
+	return UDR0;
+}
+  e4:	80 91 71 00 	lds	r24, 0x0071	; 0x800071 <__TEXT_REGION_LENGTH__+0x7e0071>
+  e8:	88 7f       	andi	r24, 0xF8	; 248
+  ea:	80 36       	cpi	r24, 0x60	; 96
+  ec:	59 f4       	brne	.+22     	; 0x104 <SlaveReceiver+0x20>
+  ee:	84 ec       	ldi	r24, 0xC4	; 196
+  f0:	80 93 74 00 	sts	0x0074, r24	; 0x800074 <__TEXT_REGION_LENGTH__+0x7e0074>
+  f4:	80 91 71 00 	lds	r24, 0x0071	; 0x800071 <__TEXT_REGION_LENGTH__+0x7e0071>
+  f8:	88 23       	and	r24, r24
+  fa:	e4 f7       	brge	.-8      	; 0xf4 <SlaveReceiver+0x10>
+  fc:	80 91 73 00 	lds	r24, 0x0073	; 0x800073 <__TEXT_REGION_LENGTH__+0x7e0073>
+ 100:	0e 94 ad 00 	call	0x15a	; 0x15a <transmit>
+ 104:	80 91 71 00 	lds	r24, 0x0071	; 0x800071 <__TEXT_REGION_LENGTH__+0x7e0071>
+ 108:	88 7f       	andi	r24, 0xF8	; 248
+ 10a:	80 38       	cpi	r24, 0x80	; 128
+ 10c:	11 f4       	brne	.+4      	; 0x112 <SlaveReceiver+0x2e>
+ 10e:	10 92 73 00 	sts	0x0073, r1	; 0x800073 <__TEXT_REGION_LENGTH__+0x7e0073>
+ 112:	08 95       	ret
+
+Disassembly of section .text.main:
+
+00000114 <main>:
+ 114:	82 e0       	ldi	r24, 0x02	; 2
+ 116:	90 e0       	ldi	r25, 0x00	; 0
+ 118:	0e 94 98 00 	call	0x130	; 0x130 <I2C_Init>
+ 11c:	83 e3       	ldi	r24, 0x33	; 51
+ 11e:	90 e0       	ldi	r25, 0x00	; 0
+ 120:	0e 94 a4 00 	call	0x148	; 0x148 <USART_Init>
+ 124:	84 e4       	ldi	r24, 0x44	; 68
+ 126:	80 93 74 00 	sts	0x0074, r24	; 0x800074 <__TEXT_REGION_LENGTH__+0x7e0074>
+ 12a:	0e 94 72 00 	call	0xe4	; 0xe4 <__data_load_end>
+ 12e:	fd cf       	rjmp	.-6      	; 0x12a <main+0x16>
